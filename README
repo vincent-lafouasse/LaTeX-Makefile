@@ -7,4 +7,7 @@ This Makefile just runs latexmk then puts all those nasty files in a directory w
 Unfortunately, moving those nasty but important files makes it impossible for latexmk to know wether it is necessary to recompile, making it recompile even if no changes were made.
 This is quite unfortunate as compiling tex documents takes a considerable time. I'm working on it.
 
-In case I have several .tex in the same directory, I would also like for the make command to put those aux files in separate directories such as aux/project_1 and aux/project_2.      
+In case I have several .tex in the same directory, I would also like for the make command to put those aux files in separate directories such as aux/project_1 and aux/project_2.
+
+Note : I use XeLaTex to compile instead of pdflatex, which allows me to write "latexmk %.tex" instead of "latexmk -pdf %.tex" to produce the pdf.
+This is done by setting the option $pdf_mode = 5; in ~/.latexmkrc
