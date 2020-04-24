@@ -1,6 +1,6 @@
 all:
 
-%.pdf: dir tmp $*.tex
+%.pdf: dir tmp %.tex
 	latexmk $*.tex > tmp/out || (less +G tmp/out && exit 1)
 # redirects the output of latexmk to tmp/out
 # if latexmk were to fail, show the tail of said output for debugging purposes
