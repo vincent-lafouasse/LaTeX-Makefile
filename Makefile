@@ -1,7 +1,7 @@
 all:
 
-%.pdf: dir tmp
-	latexmk $*.tex > tmp/out || (tail tmp/out && exit 1)
+%.pdf: dir tmp $*.tex
+	latexmk $*.tex > tmp/out || (less +G tmp/out && exit 1)
 # redirects the output of latexmk to tmp/out
 # if latexmk were to fail, show the tail of said output for debugging purposes
 # the option $pdf_mode = 5; in ~/.latexmkrc allows us to compile using XeLaTex and to just write latexmk instead of latexmk -pdf
