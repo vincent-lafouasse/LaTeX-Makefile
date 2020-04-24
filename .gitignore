@@ -1,0 +1,5 @@
+.DS_Store
+makefile_test/
+*~
+*.swp
+*.swo
