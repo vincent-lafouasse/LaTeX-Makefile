@@ -1,1 +1,10 @@
 A simple Makefile for LaTeX using latexmk
+
+latexmk is actually already a great tool to automate the compilation of .tex documents (which explains why my Makefile is so succint).
+The only problem with latexmk is that it put all auxilliary files (.aux, .log, .bbl, etc.) in the same directory as the .tex, which can get messy, especially with several .tex.
+This Makefile just runs latexmk then puts all those nasty files in a directory which is removed with the target "clean".
+
+Unfortunately, moving those nasty but important files makes it impossible for latexmk to know wether it is necessary to recompile, making it recompile even if no changes were made.
+This is quite unfortunate as compiling tex documents takes a considerable time. I'm working on it.
+
+In case I have several .tex in the same directory, I would also like for the make command to put those aux files in separate directories such as aux/project_1 and aux/project_2.      
