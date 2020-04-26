@@ -22,7 +22,6 @@ tmp/%: tmp
 aux/%: aux
 	mkdir -p aux/$*
 
-clean
 
 clean:
 	rm -rf aux
@@ -34,4 +33,7 @@ mrproper: clean
 	latexmk -C
 # cleans everything but the .tex
 
-.PHONY: all clean tmp/% aux/% mrproper
+help :
+	cat README.md
+
+.PHONY: all clean tmp/% aux/% mrproper help
