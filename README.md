@@ -32,6 +32,8 @@ This Makefile just runs `latexmk` then puts all those nasty files in an aux dire
 
 - [ ] Avoid relinking (recompiling when not necessary) even though compiling TeX projects doesn't take *that much* time (~ 10 s).
 
+- [ ] Try compiling a document with a bibliography.
+
 
 ## Requirements
 
