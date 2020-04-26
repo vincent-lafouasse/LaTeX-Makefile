@@ -26,7 +26,7 @@ This Makefile just runs `latexmk` then puts all those nasty files in an aux dire
 
 ### To be implemented
 
-- [ ] Selective `clean` and `mrproper` targets that will only delete the aux files from a certain project.
+- [ ] Selective `clean` and `mrproper` targets that will only delete the aux files from a certain project instead of removing the whole `aux/` directory.
 
 - [ ] Include `.dvi` and `.ps` output files.
 
@@ -59,4 +59,4 @@ I personnally only use `.pdf` but I will soon implement `.dvi` and `.ps` modes.
 
 - `make mrproper` clears everything but the `.tex`.
 
-Note that `make clean` and `make mrproper` will clear auxilliary from ALL projects in the directory. Selective `clean` and `mrproper` which would only clear the auxilliary files from a selected project is to be implemented.
+Note that `make clean` and `make mrproper` will clear auxilliary from ALL projects in the `aux/`directory. Selective `clean` and `mrproper` which would only clear the auxilliary files from a selected project is to be implemented.
