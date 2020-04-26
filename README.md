@@ -32,9 +32,9 @@ Note that simply typing `latexmk` will compile all `.tex` files in the directory
 
 - [ ] Include `.dvi` and `.ps` output files.
 
-- [ ] Avoid relinking (recompiling when not necessary) even though compiling TeX projects doesn't take *that much* time (~ 10-20 s).
-
 - [ ] Try compiling a document with a bibliography.
+
+- [ ] a `all` target that makes all `.tex` in the master directory.
 
 
 ## Requirements
