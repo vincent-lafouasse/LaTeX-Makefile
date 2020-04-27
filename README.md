@@ -2,9 +2,9 @@
 
 ## Introduction
 
-`latexmk` is a powerful tool to properly compile `.tex` files.
+`latexmk` is a powerful tool to properly compile `.tex` projects.
 
-Compiling `.tex` files may take several runs of compilation to properly output, especially if using a bibliography and cross-references or if using a table of contents.
+Compiling `.tex` files may take several runs of compilation to properly output, especially when cross-referencing and indexing (citations, label/ref and table of contents).
 
 `latexmk` will automatically do everything for you so you may just use the command `latexmk myfile.tex`.
 
@@ -12,19 +12,19 @@ So `latexmk` is actually already a great tool to automate the compilation of `.t
 The only problem with `latexmk` is that it puts all auxilliary files (`.aux`, `.log`, `.bbl`, etc.) in the same directory as the `.tex`, which can get messy, especially with several `.tex` files.
 This Makefile just runs `latexmk` then puts all those nasty files in the `aux/` directory which is removed with the target `clean`.
 
-Note that simply typing `latexmk` will compile all `.tex` files in the directory.
+Note that the command `latexmk` will compile all `.tex` files in the directory.
 
 ## Features #
 
 - [X] Properly compiles all TeX projects (a feature of `latexmk`).
 
-- [X] Puts the shell output of the compilation (stdout) in `tmp/yourfile/out` to avoid clutter in the shell and only have necessary information showing.
+- [X] Puts the shell output of the compilation (the standard output) in `tmp/yourfile/out` to avoid clutter in the shell and only have necessary information showing.
 
 - [X] If the compilation fails, show the tail of `tmp/yourfile/out` for debugging purposes.
 
 - [X] Puts everything but the `.tex` and the output file (`.pdf` or `.dvi` etc) in `aux/yourfile/` to avoid clutter in your master directory.
 
-- [X] Removes uneeded files using `make clean` or `make mrproper` (See "Commands").
+- [X] Removes unneeded files using `make clean` or `make mrproper` (See "Commands").
 
 ### To be implemented
 
@@ -32,9 +32,7 @@ Note that simply typing `latexmk` will compile all `.tex` files in the directory
 
 - [ ] Include `.dvi` and `.ps` output files.
 
-- [ ] Try compiling a document with a bibliography.
-
-- [ ] a `all` target that makes all `.tex` in the master directory.
+- [ ] an `all` target that makes all `.tex` in the master directory.
 
 
 ## Requirements
@@ -47,7 +45,7 @@ If you use LaTeX, you probably already have the requirements for this Makefile.
 
 ## Use
 
-Just put the Makefile in the same directory as your `.tex` file and type `make myfile.pdf` in the shell while in the directory containing your `.tex`.
+Just put the Makefile in the same directory as your `.tex` file and use the command `make myfile.pdf` in the shell while in the directory containing your `.tex`.
 
 I personnally put the Makefile in a dedicated directory and create a symbolic link in each of my tex directory.
 
@@ -65,7 +63,7 @@ I personnally only use `.pdf` but I will soon implement `.dvi` and `.ps` modes.
 
 - `make help` shows this README in the shell.
 
-Note that `make clean` and `make mrproper` will clear auxilliary from ALL projects in the `aux/` directory (it removes the whole `aux/`). Selective `clean` and `mrproper` which would only clear the auxilliary files from a selected project is to be implemented.
+Note that `make clean` and `make mrproper` will clear auxilliary files from ALL projects in the `aux/` directory (it removes the whole `aux/`). Selective `clean` and `mrproper` which would only clear the auxilliary files from a selected project is to be implemented.
 
 ## License
 
