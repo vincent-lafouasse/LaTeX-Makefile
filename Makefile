@@ -10,29 +10,26 @@ dvi : $(ALL_DVI)
 
 ps : $(ALL_PS)
 
-# makes all pdf files in the master directory
+
 
 %.pdf: aux/% tmp/% %.tex
 	latexmk -xelatex $*.tex > tmp/$*/out || (less +G tmp/$*/out && exit 1)
 # compile using XeLaTex
 # redirects the shell output of latexmk to tmp
 # if latexmk were to fail, show the tail of said output for debugging purposes
-	ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'
 	mv `ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'` aux/$*
-	-mv $*Notes.bib aux/$*
+	mv $*Notes.bib aux/$*
 # moves everything but the .tex and .pdf to aux (or eventually .dvi or .ps)
 
 %.dvi : aux/% tmp/% %.tex
 	latexmk -dvi $*.tex > tmp/$*/out || (less +G tmp/$*/out && exit 1)
-	ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'
 	mv `ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'` aux/$*
-	-mv $*Notes.bib aux/$*
+	mv $*Notes.bib aux/$*
 
 %.ps : aux/% tmp/% %.tex
 	latexmk -ps $*.tex > tmp/$*/out || (less +G tmp/$*/out && exit 1)
-	ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'
 	mv `ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'` aux/$*
-	-mv $*Notes.bib aux/$*
+	mv $*Notes.bib aux/$*
 
 
 tmp :
