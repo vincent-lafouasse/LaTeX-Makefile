@@ -1,6 +1,14 @@
 ALL_PDF = $(patsubst %.tex,%.pdf,$(wildcard *.tex))
+ALL_DVI = $(patsubst %.tex,%.dvi,$(wildcard *.tex))
+ALL_PS = $(patsubst %.tex,%.ps,$(wildcard *.tex))
 
 all : $(ALL_PDF)
+
+pdf : $(ALL_PDF)
+
+dvi : $(ALL_DVI)
+
+ps : $(ALL_PS)
 
 # makes all pdf files in the master directory
 
@@ -13,6 +21,19 @@ all : $(ALL_PDF)
 	mv `ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'` aux/$*
 	-mv $*Notes.bib aux/$*
 # moves everything but the .tex and .pdf to aux (or eventually .dvi or .ps)
+
+%.dvi : aux/% tmp/% %.tex
+	latexmk -dvi $*.tex > tmp/$*/out || (less +G tmp/$*/out && exit 1)
+	ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'
+	mv `ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'` aux/$*
+	-mv $*Notes.bib aux/$*
+
+%.ps : aux/% tmp/% %.tex
+	latexmk -ps $*.tex > tmp/$*/out || (less +G tmp/$*/out && exit 1)
+	ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'
+	mv `ls $*.* | grep -v '\.tex\|\.pdf\|\.dvi\|\.ps'` aux/$*
+	-mv $*Notes.bib aux/$*
+
 
 tmp :
 	mkdir -p tmp
@@ -40,4 +61,4 @@ help :
 	cat README.md
 
 
-.PHONY: all clean tmp/% aux/% mrproper help
+.PHONY: all clean tmp/% aux/% mrproper help pdf dvi ps
