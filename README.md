@@ -18,6 +18,8 @@ Note that the command `latexmk` will compile all `.tex` files in the directory.
 
 - [X] Properly compiles all TeX projects (a feature of `latexmk`).
 
+- [X] `all` target that makes all `.tex` in the master directory.
+
 - [X] Puts the shell output of the compilation (the standard output) in `tmp/yourfile/out` to avoid clutter in the shell and only have necessary information showing.
 
 - [X] If the compilation fails, show the tail of `tmp/yourfile/out` for debugging purposes.
@@ -32,7 +34,6 @@ Note that the command `latexmk` will compile all `.tex` files in the directory.
 
 - [ ] Include `.dvi` and `.ps` output files.
 
-- [ ] an `all` target that makes all `.tex` in the master directory.
 
 
 ## Requirements

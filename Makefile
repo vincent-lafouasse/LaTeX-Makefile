@@ -1,4 +1,8 @@
-all:
+ALL_PDF = $(patsubst %.tex,%.pdf,$(wildcard *.tex))
+
+all : $(ALL_PDF)
+
+# makes all pdf files in the master directory
 
 %.pdf: aux/% tmp/% %.tex
 	latexmk -xelatex $*.tex > tmp/$*/out || (less +G tmp/$*/out && exit 1)
@@ -22,7 +26,6 @@ tmp/%: tmp
 aux/%: aux
 	mkdir -p aux/$*
 
-
 clean:
 	rm -rf aux
 	rm -rf tmp
@@ -35,5 +38,6 @@ mrproper: clean
 
 help :
 	cat README.md
+
 
 .PHONY: all clean tmp/% aux/% mrproper help
