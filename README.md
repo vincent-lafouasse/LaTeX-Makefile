@@ -32,7 +32,11 @@ Note that the command `$latexmk` will compile all `.tex` files in the directory.
 
 - [X] Selective `clean` and `mrproper` targets that will only delete the aux files from a certain project instead of removing the whole `aux/` directory. (see "Commands").
 
+#### Incoming features
 
+- [ ] A target that cleans then recompiles. This may be useful when changing an external figure without changing the source code. 
+
+- [ ] Maybe a version 2.0 that would use a `src/` directory for the `.tex` files and an `out/` directory for the output files.
 
 ## Requirements
 
@@ -48,7 +52,7 @@ Just put the Makefile in the same directory as your `.tex` file and use the comm
 
 You may also use the command `$make` to compile all `.tex` files and output `.pdf` files.
 
-I personnally put this Makefile in a dedicated directory and create a symbolic link in each of my TeX projects.
+I personnally put this Makefile in a dedicated directory and create a symbolic link in each of my TeX projects. I will soon create an alias that copies this Makefile and its README in my directory of choice.
 
 
 #### Commands
