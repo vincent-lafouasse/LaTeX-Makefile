@@ -36,7 +36,7 @@ Note that the command `$ latexmk` will compile all `.tex` files in the directory
 
 - [ ] A target that cleans then recompiles. This may be useful when changing an external figure without changing the source code.
 
-- [ ] Maybe a version 2.0 that would use a `src/` directory for the `.tex` files and an `out/` directory for the output files.
+- [ ] Maybe a version 2.0 that would use a `src/` directory for the `.tex` files and an `out/` directory for the output files.
 
 ## Requirements
 
