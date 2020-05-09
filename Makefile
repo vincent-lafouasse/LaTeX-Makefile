@@ -58,6 +58,7 @@ mrproper: clean
 # cleans everything but the .tex
 
 clean_% :
+	latexmk -c $*.tex
 	rm -rf aux/$*
 	rm -rf tmp/$*
 	-rm -df aux
